@@ -37,13 +37,6 @@ autocmd({ 'FileType' }, {
       { 'c', '<Cmd>Gin commit<Cr>',                                              nowait_bufopts },
       { 'p', '<Cmd>lua vim.notify("Gin push")<Cr><Cmd>Gin push<Cr>',             nowait_bufopts },
       { 's', '<Cmd>bdelete<Cr><Cmd>GinStatus<Cr>j',                              nowait_bufopts },
-      {
-        'g?',
-        function()
-          require('select_action')('gin')
-        end,
-        nowait_bufopts,
-      },
     }
   end,
 })
