@@ -79,6 +79,10 @@ function M.apply()
   set.undofile = true
   set.undodir = vim.fn.stdpath('data') .. '/undo'
   set.wrap = false
+
+	if vim.fn.executable('rg') == 1 then
+		vim.opt.grepprg = 'rg --vimgrep  --smart-case --hidden --glob "!.git"'
+	end
 end
 
 return M
