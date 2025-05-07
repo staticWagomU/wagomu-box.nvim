@@ -80,9 +80,19 @@ function M.apply()
   set.undodir = vim.fn.stdpath('data') .. '/undo'
   set.wrap = false
 
-	if vim.fn.executable('rg') == 1 then
-		vim.opt.grepprg = 'rg --vimgrep  --smart-case --hidden --glob "!.git"'
-	end
+  if vim.fn.executable('rg') == 1 then
+    vim.opt.grepprg = table.concat({
+      'rg',
+      '--vimgrep',
+      '--trim',
+      '--hidden',
+      [[--glob='!.git']],
+      [[--glob='!*.lock']],
+      [[--glob='!*-lock.json']],
+      [[--glob='!*generated*']],
+    }, ' ')
+    vim.opt.grepformat = '%f:%l:%c:%m'
+  end
 end
 
 return M
