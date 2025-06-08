@@ -27,21 +27,21 @@ function M.apply()
 
 
   nmaps {
-    { '-',    '<Cmd>edit $MYVIMRC<Cr>' },
+    { '-', '<Cmd>edit $MYVIMRC<Cr>' },
 
-    { '<Space>',    '<Nop>' },
-    { 'q',          '<Nop>' },
-    { 'q',          require('wagomu-box.utils').wish_close_buf, { expr = true } },
-    { 'Q',          'q',                                        { noremap = false, silent = false } },
+    { '<Space>', '<Nop>' },
+    { 'q', '<Nop>' },
+    { 'q', require('wagomu-box.utils').wish_close_buf, { expr = true } },
+    { 'Q', 'q', { noremap = false, silent = false } },
 
-    { '<Leader>w',  '<Cmd>update<Cr>' },
-    { '<Leader>bn', '<Cmd>bnext<Cr>' },
-    { '<Leader>bp', '<Cmd>bprevious<Cr>' },
-    { '<Leader>bd', '<Cmd>bdelete<Cr>' },
-    { '<Leader>bc', '<Cmd>close<Cr>' },
-    { '<Leader>cd', '<Cmd>cd %:p:h<Cr>' },
+    { '<Leader>w', '<Cmd>update<Cr>', { desc = '保存するよ' } },
+    { '<Leader>bn', '<Cmd>bnext<Cr>', { desc = '次のバッファに移動するよ' } },
+    { '<Leader>bp', '<Cmd>bprevious<Cr>', { desc = '前のバッファに移動するよ' } },
+    { '<Leader>bd', '<Cmd>bdelete<Cr>', { desc = 'バッファを削除するよ' } },
+    { '<Leader>bc', '<Cmd>close<Cr>', { desc = '閉じるよ' } },
+    { '<Leader>cd', '<Cmd>cd %:p:h<Cr>', { desc = 'cdするよ' } },
 
-    { '*', '*N' },
+    { '*', '*N',{ desc = '次に移動しないようにするよ' }  },
 
     -- ref: https://github.com/habamax/.vim/blob/5ae879ffa91aa090efedc9f43b89c78cf748fb01/plugin/mappings.vim?plain=1#L152
     {
@@ -57,6 +57,7 @@ function M.apply()
         end
         vim.cmd('normal! 0')
       end,
+      { desc = '画面内の最下行に移動' }
     },
     {
       '<Leader>k',
@@ -68,6 +69,7 @@ function M.apply()
         end
         vim.cmd('normal! 0')
       end,
+      { desc = '画面内の最上行に移動' }
     },
 
     { 'i',   [[len(getline('.')) ? 'i' : '"_cc']], { noremap = false, expr = true } },
@@ -115,7 +117,7 @@ function M.apply()
 
   -- ref: https://blog.atusy.net/2024/09/06/linewise-zf/
   nmap('zf', 'zfV')
-  vmap('zf', [[mode() ==# 'V' ? 'zf' : 'Vzf']], { expr = true})
+  vmap('zf', [[mode() ==# 'V' ? 'zf' : 'Vzf']], { expr = true })
 end
 
 return M
