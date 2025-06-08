@@ -14,7 +14,7 @@ vim.api.nvim_create_user_command("SwapClean", function()
 end, {})
 
 -- https://vim-jp.org/vim-users-jp/2011/02/20/Hack-202.html
-create_autocmd('BufWritePre', {
+vim.api.nvim_create_autocmd('BufWritePre', {
   pattern = '*',
   callback = function(event)
     local dir = vim.fs.dirname(event.file)
