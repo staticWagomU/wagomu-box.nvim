@@ -1,7 +1,6 @@
-
 local M = {}
 
-local function setup(plugin_path)
+local function setup(plugins_path)
 	local dictdir = vim.fn.expand(vim.fs.joinpath(plugins_path, 'dict'))
 	if not vim.uv.fs_stat(dictdir) then
 		vim.notify_once('skk-dev/dictを入れてください')
