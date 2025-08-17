@@ -13,7 +13,7 @@ nmaps {
   { '<C-g><C-a>', gitsigns.stage_hunk},
   { '<C-g><C-d>', '<Cmd>Gitsigns diffthis ~<Cr>' },
   { '<C-g><C-f>', gitsigns.blame_line },
-  { '<C-g><C-F>', gitsigns.blame },
+  { '<C-g><C-h>', gitsigns.blame },
   { '<C-g><C-p>', gitsigns.preview_hunk },
   { '<C-g><C-q>', gitsigns.setqflist },
   { '<C-g><C-r>', gitsigns.undo_stage_hunk },
