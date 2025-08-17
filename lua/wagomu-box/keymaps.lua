@@ -22,9 +22,22 @@ function M.apply()
   local maps = require('wagomu-box.utils').maps
   local nmaps = require('wagomu-box.utils').nmaps
   local omaps = require('wagomu-box.utils').omaps
+  local imap = require('wagomu-box.utils').imap
   local nmap = require('wagomu-box.utils').nmap
   local vmap = require('wagomu-box.utils').vmap
 
+  -- ref: https://zenn.dev/vim_jp/articles/2024-10-07-vim-insert-uppercase
+  imap(
+    "<C-l>",
+    function()
+      local line = vim.fn.getline(".")
+      local col = vim.fn.getpos(".")[3]
+      local substring = line:sub(1, col - 1)
+      local result = vim.fn.matchstr(substring, [[\v<(\k(<)@!)*$]])
+      return "<C-w>" .. result:upper()
+    end,
+    { expr = true, desc = "入力文字列を大文字にする" }
+  )
 
   nmaps {
     { '-', '<Cmd>edit $MYVIMRC<Cr>' },
