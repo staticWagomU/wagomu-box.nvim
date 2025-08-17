@@ -37,3 +37,7 @@ local function setup(plugins_path)
 		end,
 	})
 end
+
+M.setup = setup
+
+return M
