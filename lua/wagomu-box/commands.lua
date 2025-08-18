@@ -19,7 +19,7 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   callback = function(event)
     local dir = vim.fs.dirname(event.file)
     local force = vim.v.cmdbang == 1
-    if not vim.bool_fn.isdirectory(dir)
+    if not vim.fn.isdirectory(vim.fn.expand(dir))
         and (force or vim.fn.confirm('"' .. dir .. '" does not exist. Create?', "&Yes\n&No") == 1) then
       vim.fn.mkdir(vim.fn.iconv(dir, vim.opt.encoding:get(), vim.opt.termencoding:get()), 'p')
     end
