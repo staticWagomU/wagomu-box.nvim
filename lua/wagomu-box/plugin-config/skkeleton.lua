@@ -28,7 +28,8 @@ local function setup(plugins_path)
 					getJisyo('propernoun'),
 					getJisyo('station'),
 				},
-				databasePath = '/tmp/skkeleton.sqlite3',
+				databasePath = vim.fn.expand('~/.skk/skkeleton.sqlite3'),
+				completionRankFile = vim.fn.expand('~/.skk/rank.json'),
 			}
 			vim.fn['skkeleton#register_kanatable']('rom', {
 				[ [[z\<Space>]] ] = { [[\u3000]], '' },
