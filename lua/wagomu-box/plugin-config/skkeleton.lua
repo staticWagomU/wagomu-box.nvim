@@ -30,6 +30,7 @@ local function setup(plugins_path)
 				},
 				databasePath = vim.fn.expand('~/.skk/skkeleton.sqlite3'),
 				completionRankFile = vim.fn.expand('~/.skk/rank.json'),
+				markerHenkan = '',
 			}
 			vim.fn['skkeleton#register_kanatable']('rom', {
 				[ [[z\<Space>]] ] = { [[\u3000]], '' },
