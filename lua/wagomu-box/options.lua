@@ -33,7 +33,6 @@ function M.apply()
   set.foldenable = true
   set.foldlevel = 99999
   set.foldlevelstart = 99999
-  set.foldtext = [[v:lua.vim.treesitter.foldtext()]]
   set.helplang = 'ja,en'
   set.hidden = true
   set.hlsearch = true
