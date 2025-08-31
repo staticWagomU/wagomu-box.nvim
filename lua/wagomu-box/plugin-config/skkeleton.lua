@@ -16,7 +16,7 @@ local function setup(plugins_path)
 		pattern = 'skkeleton-initialize-pre',
 		callback = function()
 			local getJisyo = function(name)
-				local jisyo = vim.fn.expand(vim.fs.joinpath(dictdir, 'SKK-JISYO.'))
+				local jisyo = vim.fn.expand(vim.fs.joinpath(plugins_path, 'dict', 'SKK-JISYO.'))
 				return vim.fs.normalize(jisyo .. name)
 			end
 			vim.fn['skkeleton#config'] {
