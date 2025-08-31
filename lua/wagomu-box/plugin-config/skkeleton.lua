@@ -16,8 +16,8 @@ local function setup(plugins_path)
 		pattern = 'skkeleton-initialize-pre',
 		callback = function()
 			local getJisyo = function(name)
-				local dictdir = vim.fn.expand(vim.fs.joinpath(plugins_path, 'dict', 'SKK-JISYO.'))
-				return vim.fs.normalize(dictdir .. name)
+				local jisyo = vim.fn.expand(vim.fs.joinpath(dictdir, 'SKK-JISYO.'))
+				return vim.fs.normalize(jisyo .. name)
 			end
 			vim.fn['skkeleton#config'] {
 				eggLikeNewline = true,
@@ -30,6 +30,8 @@ local function setup(plugins_path)
 				},
 				databasePath = vim.fn.expand('~/.skk/skkeleton.sqlite3'),
 				completionRankFile = vim.fn.expand('~/.skk/rank.json'),
+				markerHenkan = '',
+				markerHenkanSelect = '',
 			}
 			vim.fn['skkeleton#register_kanatable']('rom', {
 				[ [[z\<Space>]] ] = { [[\u3000]], '' },
