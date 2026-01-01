@@ -53,6 +53,7 @@ function M.apply()
   set.signcolumn = 'yes'
   set.smartcase = true
   set.softtabstop = 2
+  set.shiftround = true
   set.statusline = '─'
   set.tabstop = 2
   set.undofile = true
