@@ -206,4 +206,17 @@ function M.modified_background_buffers()
   end
 end
 
+function M.is_present(v)
+  if not v or v == 0 or v == '' then
+    return false
+  elseif type(v) == 'table' and next(v) == nil then
+    return false
+  end
+  return true
+end
+
+function M.is_blank(v)
+  return not M.is_present(v)
+end
+
 return M
