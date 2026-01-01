@@ -219,4 +219,19 @@ function M.is_blank(v)
   return not M.is_present(v)
 end
 
+-- https://scrapbox.io/vim-jp/boolean%E3%81%AA%E5%80%A4%E3%82%92%E8%BF%94%E3%81%99vim.fn%E3%81%AEwrapper_function
+-- https://github.com/kawarimidoll/dotfiles/blob/3973a06c025e13e853336848c0856db60271ef1e/.config/nvim/lua/mi/utils.lua#L147-L155
+-- example:
+-- if vim.bool_fn.has('mac') then ... end
+if not vim.bool_fn then
+  vim.bool_fn = setmetatable({}, {
+    __index = function(_, key)
+      return function(...)
+        return M.is_present(vim.fn[key](...))
+      end
+    end,
+  })
+end
+
+
 return M
