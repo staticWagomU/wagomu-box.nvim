@@ -106,6 +106,9 @@ function M.apply()
 		{ 'va[', 'va[' },
 		{ 'va{', 'va{' },
 		{ 'va@', 'va`' },
+
+		{ '<C-S-O>', 'Go' },
+		{ '<C-S-G>', 'GA' },
 	}
 
 	omaps {
